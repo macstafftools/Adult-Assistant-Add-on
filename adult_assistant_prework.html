@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MacSailing · Adult Programs — Assistant Instructor Pre-Work</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0056A0;--mid:#3A7FC1;--pale:#D6E8F7;--dark:#0D3A6B;--deep:#07223F;--off:#F5F8FC;--text:#1a2e3b;--muted:#5a7a96;--border:#D0DDED;--accent:#F4A24D;--success:#2E9E6B;--danger:#C0392B;--warn:#E67E22;--purple:#6D28D9;--r:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Lato',sans-serif;background:#fff;color:var(--text);min-height:100vh;overflow-x:hidden}
+#sidebar{position:fixed;top:0;left:0;width:268px;height:100vh;background:#fff;border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:100;overflow-y:auto}
+.sb-logo{padding:22px 20px 16px;border-bottom:1px solid var(--border)}
+.sb-logo img{width:150px}
+.sb-logo p{color:var(--muted);font-size:.64rem;margin-top:8px;text-transform:uppercase;letter-spacing:.15em;font-weight:700}
+.prog-wrap{padding:13px 20px;border-bottom:1px solid var(--border)}
+.prog-lbl{display:flex;justify-content:space-between;color:var(--muted);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.prog-track{height:3px;background:var(--border);border-radius:2px}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--success),var(--accent));border-radius:2px;transition:width .4s;width:0%}
+.nav-sec{padding:8px 0 4px}
+.nav-grp{padding:5px 20px;font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);font-weight:900}
+.ni{display:flex;align-items:center;gap:10px;padding:9px 20px;cursor:pointer;transition:all .15s;border-left:3px solid transparent}
+.ni:hover{background:var(--off)}
+.ni.active{background:#EDFBF3;border-left-color:var(--success)}
+.ni.active .nl{color:#1A7048}
+.nd{width:7px;height:7px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background .3s}
+.ni.active .nd{background:var(--accent)}
+.ni.done .nd{background:var(--success)}
+.nl{font-size:.78rem;color:var(--muted);line-height:1.3;font-weight:400;transition:color .15s}
+#main{margin-left:268px;min-height:100vh;background:var(--off)}
+.sec{display:none}.sec.active{display:block}
+.hero{background:linear-gradient(140deg,#0D2A1A 0%,#1A4A2E 55%,#1A7048 100%);min-height:300px;display:flex;align-items:flex-end;padding:44px 52px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:65px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 65'%3E%3Cpath fill='%23F5F8FC' d='M0,32L80,37C160,42,320,52,480,49C640,46,800,35,960,31C1120,27,1280,33,1360,37L1440,41L1440,65L0,65Z'/%3E%3C/svg%3E") no-repeat bottom;background-size:cover}
+.hc{position:relative;z-index:1}
+.htag{display:inline-block;background:rgba(244,162,77,.18);border:1px solid rgba(244,162,77,.5);color:var(--accent);font-size:.62rem;text-transform:uppercase;letter-spacing:.18em;padding:4px 12px;border-radius:20px;margin-bottom:12px;font-weight:700}
+.hero h2{font-weight:900;color:white;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;margin-bottom:9px;letter-spacing:-.02em}
+.hero p{color:rgba(255,255,255,.62);font-size:.93rem;max-width:480px;line-height:1.65}
+.cb{padding:40px 52px;max-width:860px}
+.card{background:white;border:1px solid var(--border);border-radius:var(--r);padding:22px 26px;margin-bottom:16px;transition:box-shadow .2s}
+.card:hover{box-shadow:0 2px 14px rgba(26,112,72,.08)}
+.ctitle{color:#1A7048;font-size:1rem;font-weight:700;margin-bottom:11px;display:flex;align-items:center;gap:9px}
+.cicon{width:28px;height:28px;background:linear-gradient(135deg,#1A7048,var(--success));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+ul.st{list-style:none;display:flex;flex-direction:column;gap:6px}
+ul.st li{padding:6px 0 6px 17px;position:relative;color:var(--text);font-size:.88rem;line-height:1.55;border-bottom:1px solid rgba(26,112,72,.05)}
+ul.st li:last-child{border-bottom:none}
+ul.st li::before{content:'▸';position:absolute;left:0;color:var(--success);font-size:.66rem;top:9px}
+h3.sub{font-weight:900;color:#1A7048;font-size:1.15rem;margin:24px 0 12px;letter-spacing:-.01em}
+p.lead{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-bottom:16px}
+.al{border-radius:var(--r);padding:13px 17px;margin-bottom:13px;display:flex;gap:11px;align-items:flex-start}
+.al-i{background:#EEF5FC;border-left:4px solid var(--mid)}
+.al-s{background:#EDFBF3;border-left:4px solid var(--success)}
+.al-w{background:#FFF5EB;border-left:4px solid var(--warn)}
+.al-d{background:#FEF2F2;border-left:4px solid var(--danger)}
+.ai{font-size:1.05rem;flex-shrink:0;margin-top:1px}
+.at{font-size:.84rem;line-height:1.6;color:var(--text)}
+.at strong{display:block;margin-bottom:2px;font-weight:700}
+.tw{overflow-x:auto;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th{background:#1A7048;color:white;padding:10px 13px;text-align:left;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+th:first-child{border-radius:6px 0 0 0}th:last-child{border-radius:0 6px 0 0}
+td{padding:9px 13px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+tr:hover td{background:rgba(26,112,72,.03)}
+.qblock{background:linear-gradient(140deg,#0D2A1A 0%,#1A4A2E 100%);border-radius:13px;padding:30px 34px;margin:24px 0;color:white}
+.qblock h3{font-size:1.05rem;margin-bottom:6px;color:#7DDBA8;font-weight:900}
+.qq{font-size:.9rem;line-height:1.65;margin-bottom:16px;opacity:.88}
+.qopts{display:flex;flex-direction:column;gap:8px}
+.qo{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:7px;padding:11px 15px;cursor:pointer;transition:all .2s;font-size:.84rem;color:rgba(255,255,255,.82);font-family:'Lato',sans-serif;text-align:left;width:100%}
+.qo:hover{background:rgba(255,255,255,.12);border-color:#7DDBA8}
+.qo.correct{background:rgba(46,158,107,.22);border-color:var(--success);color:#7DDBA8}
+.qo.wrong{background:rgba(192,57,43,.22);border-color:var(--danger);color:#F4A097}
+.qfb{margin-top:12px;padding:11px 15px;border-radius:7px;font-size:.83rem;display:none;line-height:1.55}
+.qfb.show{display:block}
+.qfb.correct{background:rgba(46,158,107,.18);color:#7DDBA8;border:1px solid rgba(46,158,107,.3)}
+.qfb.wrong{background:rgba(192,57,43,.18);color:#F4A097;border:1px solid rgba(192,57,43,.3)}
+.scenario{background:white;border:1px solid var(--border);border-radius:var(--r);margin-bottom:14px;overflow:hidden}
+.scenario-hdr{padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;background:var(--off);transition:background .15s}
+.scenario-hdr:hover{background:#EDFBF3}
+.scenario-hdr h4{font-size:.9rem;font-weight:700;color:#1A7048;flex:1}
+.scenario-hdr .tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:2px 8px;border-radius:20px;background:rgba(26,112,72,.1);color:#1A7048}
+.scenario-body{display:none;padding:16px 18px;border-top:1px solid var(--border)}
+.scenario.open .scenario-body{display:block}
+.scenario-q{font-size:.86rem;color:var(--text);line-height:1.6;margin-bottom:12px;font-style:italic}
+.scenario-a{background:var(--off);border-radius:8px;padding:14px 16px}
+.scenario-a p{font-size:.84rem;color:var(--text);line-height:1.6}
+.chevron{color:var(--muted);font-size:.75rem;transition:transform .2s}
+.scenario.open .chevron{transform:rotate(180deg)}
+.role-diff{background:linear-gradient(135deg,rgba(0,86,160,.06),rgba(0,86,160,.02));border:1px solid rgba(0,86,160,.15);border-radius:var(--r);padding:16px 20px;margin-bottom:16px}
+.role-diff h4{color:var(--blue);font-weight:700;font-size:.88rem;margin-bottom:8px}
+.role-diff p{font-size:.84rem;color:var(--text);line-height:1.6}
+.bn{display:flex;justify-content:space-between;align-items:center;padding:22px 52px;border-top:1px solid var(--border);background:white;position:sticky;bottom:0}
+.btn{padding:10px 22px;border-radius:7px;font-family:'Lato',sans-serif;font-size:.84rem;font-weight:700;cursor:pointer;transition:all .2s;border:none;letter-spacing:.02em}
+.btn-p{background:#1A7048;color:white}
+.btn-p:hover{background:#0D3A22;transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,112,72,.3)}
+.btn-g{background:transparent;border:1px solid var(--border);color:#1A7048}
+.btn-g:hover{background:#EDFBF3}
+.btn:disabled{opacity:.3;cursor:not-allowed;transform:none!important}
+.sc-ctr{font-size:.76rem;color:var(--muted);font-weight:700}
+#welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:40px;background:#fff}
+#welcome img{width:200px;margin-bottom:24px}
+.sbadge{background:rgba(26,112,72,.08);border:1px solid rgba(26,112,72,.2);color:#1A7048;font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;padding:5px 16px;border-radius:20px;margin-bottom:16px;font-weight:700;display:inline-block}
+#welcome h1{font-weight:900;color:#1A7048;font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin-bottom:10px;letter-spacing:-.02em}
+#welcome h1 span{color:var(--accent)}
+#welcome .sh{color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:8px}
+#welcome p{color:var(--muted);font-size:.97rem;max-width:450px;line-height:1.7;margin-bottom:22px}
+.wmods{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;max-width:490px;margin-bottom:28px}
+.wmod{background:var(--off);border:1px solid var(--border);color:var(--muted);font-size:.73rem;padding:4px 12px;border-radius:20px;font-weight:700}
+.done-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,#EDFBF3,white);padding:60px}
+.done-badge{width:88px;height:88px;background:linear-gradient(135deg,#1A7048,var(--success));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.1rem;margin-bottom:22px;box-shadow:0 6px 28px rgba(26,112,72,.28)}
+.done-screen h2{font-weight:900;color:#1A7048;font-size:1.9rem;margin-bottom:10px}
+.done-screen p{color:var(--muted);font-size:.93rem;max-width:450px;line-height:1.7;margin-bottom:8px}
+.next-box{background:#EDFBF3;border-radius:var(--r);padding:16px 22px;max-width:450px;margin:18px 0 26px;text-align:left}
+.next-box h4{color:#1A7048;font-weight:900;font-size:.86rem;margin-bottom:7px;text-transform:uppercase;letter-spacing:.08em}
+.next-box ul{list-style:none}
+.next-box ul li{font-size:.84rem;color:var(--text);padding:4px 0 4px 15px;position:relative}
+.next-box ul li::before{content:'→';position:absolute;left:0;color:var(--success);font-weight:700}
+#hamburger{display:none;align-items:center;justify-content:center;position:fixed;top:14px;left:14px;z-index:201;width:40px;height:40px;background:white;border:1px solid var(--border);border-radius:8px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+#hamburger span{display:block;width:18px;height:2px;background:#1A7048;margin:3px auto;border-radius:2px}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:199}
+@media(max-width:768px){
+  #sidebar{transform:translateX(-100%);transition:transform .3s ease;display:flex!important;z-index:200;box-shadow:4px 0 20px rgba(0,0,0,.15)}
+  #sidebar.open{transform:translateX(0)}
+  #main{margin-left:0}
+  .hero{padding:26px 20px 40px}.cb{padding:22px 18px}
+  .g2,.g3{grid-template-columns:1fr}.bn{padding:14px 18px}
+  #overlay.show{display:block}
+  #hamburger{display:flex}
+}
+@media(min-width:769px){#hamburger{display:none}#overlay{display:none!important}}
+</style>
+</head>
+<body>
+
+<div id="welcome">
+  <img src="data:image/png;base64,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" alt="MacSailing">
+  <div class="sbadge">2026 Season · Adult Programs</div>
+  <div class="sh">Assistant Instructor</div>
+  <h1>Adult Programs<br><span>Pre-Work</span></h1>
+  <p>You've completed the general onboarding. This module covers your specific role as an Assistant Instructor in adult programs.</p>
+  <div class="wmods">
+    <span class="wmod">🎓 The Adult Journey</span>
+    <span class="wmod">⛵ CANSail Levels</span>
+    <span class="wmod">👥 Teaching Adults</span>
+    <span class="wmod">🗺️ Program Pathways</span>
+    <span class="wmod">📋 Your Role on the Team</span>
+    <span class="wmod">🌬️ Wind & Conditions</span>
+    <span class="wmod">🎭 Scenarios</span>
+  </div>
+  <button class="btn btn-p" style="font-size:.98rem;padding:13px 34px;" onclick="start()">Begin →</button>
+</div>
+
+<div id="overlay" onclick="closeSidebar()"></div>
+<button id="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+
+<div id="sidebar" style="display:none;">
+  <div class="sb-logo">
+    <img src="data:image/png;base64,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" alt="MacSailing">
+    <p>Adult Programs · Assistant Instructor · 2026</p>
+  </div>
+  <div class="prog-wrap">
+    <div class="prog-lbl"><span>Progress</span><span id="pct">0%</span></div>
+    <div class="prog-track"><div class="prog-fill" id="pfill"></div></div>
+  </div>
+  <div class="nav-sec" id="navlist"></div>
+</div>
+
+<div id="main" style="display:none;">
+
+<!-- S0: The Adult Journey -->
+<div class="sec active" data-s="0">
+  <div class="hero">
+    <div class="hc">
+      <div class="htag">Module 1</div>
+      <h2>The Adult Journey</h2>
+      <p>Understanding why adults are here — and what they expect — changes how you support the team.</p>
+    </div>
+  </div>
+  <div class="cb">
+    <p class="lead">Adult customers are excited and invested in their journey. They expect professionalism, organization, and added value. They are more attuned to instructor behaviour than any other group at MacSailing.</p>
+
+    <div class="role-diff">
+      <h4>🟢 Your role in the journey</h4>
+      <p>As an Assistant Instructor, you support the Lead. You're not running the class — but you are always visible, always active, and always part of the experience. Adults notice when you're engaged. They also notice when you're not.</p>
+    </div>
+
+    <h3 class="sub">The 6 Stages — Your Touchpoints</h3>
+
+    <div class="tw"><table>
+      <tr><th>Stage</th><th>What's happening</th><th>Your role</th></tr>
+      <tr><td><strong>Discovery</strong></td><td>Customer registers, arrives with high expectations</td><td>Be warm and welcoming the moment they walk in</td></tr>
+      <tr><td><strong>Day 1</strong></td><td>Lead sets the tone — lively, organized, friendly</td><td>Talk to students, answer questions, help set up</td></tr>
+      <tr><td><strong>Mid-Course</strong></td><td>Progress check-ins, honest conversations</td><td>Give consistent on-water feedback, flag concerns to Lead</td></tr>
+      <tr><td><strong>Completion</strong></td><td>One-on-one evaluations, Mac Crew handoff</td><td>Support the debrief, reinforce the Lead's messaging</td></tr>
+      <tr><td><strong>Mac Crew</strong></td><td>Student joins the community</td><td>Know the streams so you can answer questions confidently</td></tr>
+      <tr><td><strong>Next Steps</strong></td><td>Student progresses to next course or rental</td><td>Know all pathways — be a resource, not a blank</td></tr>
+    </table></div>
+
+    <div class="al al-i"><div class="ai">💡</div><div class="at"><strong>Remember:</strong> Simply being on site doesn't mean you're working. Check in with the Lead instructor and stay engaged with the class at all times.</div></div>
+  </div>
+</div>
+
+<!-- S1: CANSail Levels -->
+<div class="sec" data-s="1">
+  <div class="hero">
+    <div class="hc">
+      <div class="htag">Module 2</div>
+      <h2>CANSail Levels & Fleet</h2>
+      <p>Know the levels and boats so you can coach confidently and answer student questions accurately.</p>
+    </div>
+  </div>
+  <div class="cb">
+    <div class="card">
+      <div class="ctitle"><div class="cicon">1</div>CANSail 1</div>
+      <p style="font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:10px">Goal: get students comfortable and able to sail to any point on the water.</p>
+      <ul class="st"><li>Sailing to any point of sail</li><li>Righting a capsized boat</li><li>Basic knots and right of way</li><li>Completion: can rent a <strong>Zest</strong> in light/moderate winds</li></ul>
+    </div>
+    <div class="card">
+      <div class="ctitle"><div class="cicon">2</div>CANSail 2</div>
+      <p style="font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:10px">Goal: sail efficiently to any point. More focus on sail trim and boat speed.</p>
+      <ul class="st"><li>Proper sail trim and boat speed</li><li>Close-hauled to close-hauled tacks</li><li>Completion: can rent a <strong>420</strong> in moderate winds</li></ul>
+    </div>
+    <div class="card">
+      <div class="ctitle"><div class="cicon">3</div>CANSail 3</div>
+      <p style="font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:10px">Big step up — advanced boat handling and introduction to racing.</p>
+      <ul class="st"><li>Boat speed through sail control adjustments</li><li>Advanced maneuvers — steering with heel, backwards sailing</li><li>Introduction to racing skills</li></ul>
+    </div>
+
+    <h3 class="sub">The Fleet</h3>
+    <div class="tw"><table>
+      <tr><th>Boat</th><th>Level</th><th>Notes</th></tr>
+      <tr><td><strong>Zest</strong></td><td>CANSail 1 primary</td><td>Main teaching boat. Stable and forgiving</td></tr>
+      <tr><td><strong>420</strong></td><td>CANSail 2 primary</td><td>Two-person boat with skipper and crew roles</td></tr>
+      <tr><td><strong>Laser</strong></td><td>Advanced / CANSail 3</td><td>Single-handed, more physical demands</td></tr>
+      <tr><td><strong>Hobie Getaway</strong></td><td>Tours / Advanced</td><td>Catamaran — heavier, slower to respond</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<!-- S2: Teaching Adults -->
+<div class="sec" data-s="2">
+  <div class="hero">
+    <div class="hc">
+      <div class="htag">Module 3</div>
+      <h2>Teaching Adults</h2>
+      <p>Adults are paying and they're aware. Your coaching style needs to match that.</p>
+    </div>
+  </div>
+  <div class="cb">
+    <p class="lead">You teach the same material as youth programs but the style changes completely. Adults are paying for their own courses and they notice everything — including when you're not fully present.</p>
+
+    <h3 class="sub">What Changes</h3>
+    <div class="g2">
+      <div class="card"><div class="ctitle"><div class="cicon">💬</div>Explain the Why</div><p style="font-size:.85rem;color:var(--muted);line-height:1.6;">Connect ideas to daily life. "We look before we tack just like you shoulder check before turning." Adults need context to learn, not just instruction.</p></div>
+      <div class="card"><div class="ctitle"><div class="cicon">🎯</div>Constant Feedback</div><p style="font-size:.85rem;color:var(--muted);line-height:1.6;">Be active on the water — always. Adults notice when you go quiet. Watch faces for confusion and respond before they disengage.</p></div>
+      <div class="card"><div class="ctitle"><div class="cicon">💪</div>Be Confident</div><p style="font-size:.85rem;color:var(--muted);line-height:1.6;">Highlight your experience during introductions. Adults trust confidence. If you're uncertain, check with the Lead rather than guessing.</p></div>
+      <div class="card"><div class="ctitle"><div class="cicon">❤️</div>Be Patient</div><p style="font-size:.85rem;color:var(--muted);line-height:1.6;">Everyone learns at different speeds. Remind students of this. Your patience creates the safe environment where adults are willing to try and fail.</p></div>
+    </div>
+
+    <div class="al al-s"><div class="ai">🎓</div><div class="at"><strong>Your teaching opportunity:</strong> If you feel confident teaching a specific lesson, talk to your Lead Instructor about running it. Each assistant should get a chance to teach.</div></div>
+
+    <h3 class="sub">When You're Not Teaching</h3>
+    <div class="card"><ul class="st">
+      <li>Stay engaged in the lesson — watch, listen, be ready</li>
+      <li>Watch students' facial expressions to gauge understanding or confusion</li>
+      <li>Provide on-water feedback constantly — you are an extension of the Lead</li>
+      <li>Flag anything you notice to the Lead after the session</li>
+    </ul></div>
+
+    <div class="qblock">
+      <h3>🧠 Quick Check</h3>
+      <p class="qq">You're on the water and not currently teaching. A student looks confused but hasn't said anything. What do you do?</p>
+      <div class="qopts">
+        <button class="qo" onclick="ans(this,'wrong','q1')">Wait for the Lead to notice and address it</button>
+        <button class="qo" onclick="ans(this,'correct','q1')">Pull alongside them, check in, give specific feedback — then let the Lead know after the session</button>
+        <button class="qo" onclick="ans(this,'wrong','q1')">Call it out to the whole group so everyone can hear the correction</button>
+      </div>
+      <div class="qfb" id="q1-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Program Pathways -->
+<div class="sec" data-s="3">
+  <div class="hero">
+    <div class="hc">
+      <div class="htag">Module 4</div>
+      <h2>Program Pathways</h2>
+      <p>You don't run all these programs — but you need to know them so you can answer any student question confidently.</p>
+    </div>
+  </div>
+  <div class="cb">
+    <p class="lead">Students will ask you what's next. You need to know the full pathway — not just the course you're currently teaching.</p>
+
+    <div class="tw"><table>
+      <tr><th>Student</th><th>Recommend</th></tr>
+      <tr><td>Just finished CANSail 1</td><td>Mac Crew: Learn — social sailing community for CS1 grads</td></tr>
+      <tr><td>Just finished CANSail 2</td><td>Mac Crew: Race — racing tactics and fleet sailing for CS2 grads</td></tr>
+      <tr><td>Interested in cruising</td><td>Basic Cruising Standard → Mac Crew: Cruise</td></tr>
+      <tr><td>Wants to rent</td><td>CANSail 1 = Zest rental · CANSail 2 = 420 rental</td></tr>
+      <tr><td>Almost finished their level</td><td>Mac Crew event or private lesson to complete last objective — there is no fail</td></tr>
+      <tr><td>Wants a premium experience</td><td>Vancouver by Sea — tours on a 40ft sailboat</td></tr>
+      <tr><td>Unsure what's next</td><td>Direct them to the Lead Instructor for a personal conversation</td></tr>
+    </table></div>
+
+    <div class="al al-s"><div class="ai">🌟</div><div class="at"><strong>There is no fail.</strong> If a student needs one more session, suggest a Mac Crew event or private lesson. Frame it as an opportunity to finish strong.</div></div>
+
+    <div class="al al-i"><div class="ai">💡</div><div class="at"><strong>Not sure?</strong> If a student asks something you're not confident answering, say "Let me connect you with [Lead's name] — they'll be able to give you the full picture." Never guess.</div></div>
+  </div>
+</div>
+
+<!-- S4: Your Role on the Team -->
+<div class="sec" data-s="4">
+  <div class="hero">
+    <div class="hc">
+      <div class="htag">Module 5</div>
+      <h2>Your Role on the Team</h2>
+      <p>You support the Lead. That means being proactive, prepared, and fully present — every session.</p>
+    </div>
+  </div>
+  <div class="cb">
+
+    <h3 class="sub">Schedule</h3>
+    <div class="tw"><table>
+      <tr><th>Format</th><th>Schedule</th></tr>
+      <tr><td>Weekday evenings</td><td>5 days in a row · 6–9pm (shifts later in season)</td></tr>
+      <tr><td>Weekends</td><td>Two weekends in a row · mornings or evenings</td></tr>
+      <tr><td>Arrive</td><td><strong>20 minutes before class start</strong> — talking to students and answering questions</td></tr>
+    </table></div>
+
+    <h3 class="sub">Before the Session Starts</h3>
+    <div class="card"><ul class="st">
+      <li>Get coach boats, wetsuits, and wetsuit washing station ready on arrival</li>
+      <li>Be in the classroom 20 minutes early — talking to students, answering questions</li>
+      <li>Check the office for consent forms unless office staff are present</li>
+      <li>Check in with the Lead — know the plan before class starts</li>
+    </ul></div>
+
+    <h3 class="sub">On the Water</h3>
+    <div class="card"><ul class="st">
+      <li>Check each boat's rigging before launching — <strong>make sure the plugs are in</strong></li>
+      <li>Ensure equal sailing time for all participants</li>
+      <li>Keep track of who is launching first each day — vary the order</li>
+      <li>Keep track of who is skippering vs crewing more — balance it</li>
+      <li>Provide constant, specific feedback to students on the water</li>
+    </ul></div>
+
+    <h3 class="sub">CANSail Logs</h3>
+    <div class="card"><ul class="st">
+      <li>Sit down as a group at the end of every class to complete the log</li>
+      <li>Covers student issues and who needs extra help next session</li>
+      <li>Log any boat repairs — QR code for the CANSail log is on the office cupboard door</li>
+      <li>First log: Sail Canada registration · Last log: makeup classes</li>
+    </ul></div>
+
+    <div class="al al-w"><div class="ai">⚠️</div><div class="at"><strong>Simply being on site is not working.</strong> Check in with your Lead, interact with the class, and stay engaged. If you're unsure what to do, ask the Lead directly.</div></div>
+
+    <div class="qblock">
+      <h3>🧠 Quick Check</h3>
+      <p class="qq">You arrive for an adult class and there's 15 minutes before start. What should you be doing?</p>
+      <div class="qopts">
+        <button class="qo" onclick="ans(this,'wrong','q2')">Waiting near the boats until the Lead tells you what to do</button>
+        <button class="qo" onclick="ans(this,'correct','q2')">Coach boats and wetsuits ready, in the classroom talking to students, consent forms checked, Lead briefed on your readiness</button>
+        <button class="qo" onclick="ans(this,'wrong','q2')">Getting yourself organized and reviewing the lesson plan</button>
+      </div>
+      <div class="qfb" id="q2-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: Wind & Conditions -->
+<div class="sec" data-s="5">
+  <div class="hero">
+    <div class="hc">
+      <div class="htag">Module 6</div>
+      <h2>Wind & Conditions</h2>
+      <p>Know how conditions change the session so you can support the Lead and coach students effectively.</p>
+    </div>
+  </div>
+  <div class="cb">
+    <h3 class="sub">Wind Level Focus Points</h3>
+    <div class="g3">
+      <div class="card"><div class="ctitle"><div class="cicon">🍃</div>Light Wind</div><ul class="st"><li>Flat boat</li><li>Smooth movements to keep momentum</li><li>Great for beginners building confidence</li></ul></div>
+      <div class="card"><div class="ctitle"><div class="cicon">💨</div>Medium Wind</div><ul class="st"><li>Crew doesn't cross the middle line until the skipper does</li><li>Good for developing skill and boat speed</li></ul></div>
+      <div class="card"><div class="ctitle"><div class="cicon">🌬️</div>Heavy Wind</div><ul class="st"><li>Sail powers up until correctly trimmed — think about balance position</li><li>If necessary — drop the sheet, never drop the tiller</li></ul></div>
+    </div>
+
+    <h3 class="sub">Light Wind Day — Your Role</h3>
+    <div class="card"><ul class="st">
+      <li>Support the rig and safety check at the start</li>
+      <li>Launch for any breeze at all (1–3 knots) — steering and balance practice</li>
+      <li>On land: help run knots, right-of-way scenarios, rigging challenges alongside the Lead</li>
+      <li>Keep morale positive — frame it as real-world sailing awareness, not a cancelled session</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- S6: Scenarios -->
+<div class="sec" data-s="6">
+  <div class="hero">
+    <div class="hc">
+      <div class="htag">Module 7</div>
+      <h2>Scenarios</h2>
+      <p>Situations you'll face as an Assistant. Read each one, think it through, then reveal the answer.</p>
+    </div>
+  </div>
+  <div class="cb">
+
+    <div class="scenario open">
+      <div class="scenario-hdr" onclick="toggleScenario(this)">
+        <h4>Scenario 1 — Student Frustration</h4>
+        <span class="tag">Coaching</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="scenario-body">
+        <p class="scenario-q">"An adult learner becomes frustrated after struggling with a skill. How do you support them without undermining the Lead?"</p>
+        <div class="scenario-a">
+          <p>"Everyone is learning — these are completely new skills and they take time." Break the skill down: identify what they're doing well and what's causing trouble. Stay calm — your patience is contagious. If the student needs more support than you can give on the water, flag it to your Lead after the session. The Lead can take over the conversation if needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-hdr" onclick="toggleScenario(this)">
+        <h4>Scenario 2 — Mobility Challenges</h4>
+        <span class="tag">Inclusion</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="scenario-body">
+        <p class="scenario-q">"A student is struggling to cross the boat — mobility issues are affecting their ability to tack. This comes up more often in Zests than 420s."</p>
+        <div class="scenario-a">
+          <p>Ask if they're okay or experiencing discomfort — they probably already know what's wrong. Find modifications: placing the back foot across before the tack, adjusting tiller exchange timing. Watch them demonstrate another tack to see exactly what's causing trouble. Mention other options — 420s next course, cruising as an alternative. For anything significant, make sure it's communicated to the Lead and a supervisor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-hdr" onclick="toggleScenario(this)">
+        <h4>Scenario 3 — Light Wind Day</h4>
+        <span class="tag">Conditions</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="scenario-body">
+        <p class="scenario-q">"It's nearly windless. The Lead is running a land session. How do you support it?"</p>
+        <div class="scenario-a">
+          <p>Help run the stations alongside the Lead — knots, right-of-way scenarios, rigging challenges, dryland tacks. Stay engaged and enthusiastic. Keep morale positive: "This is part of sailing — you're building real awareness." Take the lead on specific stations if the Lead asks you to. Never be passive during a land session.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qblock">
+      <h3>🧠 Quick Check</h3>
+      <p class="qq">A student asks you what they should do after they finish CANSail 2. You're not totally sure. What do you say?</p>
+      <div class="qopts">
+        <button class="qo" onclick="ans(this,'wrong','q3')">Give your best guess based on what you know</button>
+        <button class="qo" onclick="ans(this,'correct','q3')">"Mac Crew: Race is designed for CANSail 2 graduates — let me connect you with [Lead's name] for the full picture"</button>
+        <button class="qo" onclick="ans(this,'wrong','q3')">Tell them to check the MacSailing website</button>
+      </div>
+      <div class="qfb" id="q3-fb"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S7: Complete -->
+<div class="sec" data-s="7">
+  <div class="done-screen">
+    <div class="done-badge">⚓</div>
+    <h2>Pre-Work Complete!</h2>
+    <p>You're ready to assist in adult programs. Co-teach with your Lead, stay engaged, and ask questions when you're unsure.</p>
+    <div class="next-box">
+      <h4>Next steps</h4>
+      <ul>
+        <li>Co-teach alongside your Lead Instructor</li>
+        <li>Get signed off when you and your Lead agree you're ready for more responsibility</li>
+        <li>Review the program packs for your assigned levels in the Staff Hub</li>
+        <li>Questions about adult programs → Lorna Bruce (Adult Program Manager)</li>
+      </ul>
+    </div>
+    <div class="wmods" style="justify-content:center;margin-bottom:22px;">
+      <span class="wmod" style="background:rgba(26,112,72,.08);border-color:rgba(26,112,72,.2);color:#1A7048;">✅ Adult Journey</span>
+      <span class="wmod" style="background:rgba(26,112,72,.08);border-color:rgba(26,112,72,.2);color:#1A7048;">✅ CANSail Levels</span>
+      <span class="wmod" style="background:rgba(26,112,72,.08);border-color:rgba(26,112,72,.2);color:#1A7048;">✅ Teaching Adults</span>
+      <span class="wmod" style="background:rgba(26,112,72,.08);border-color:rgba(26,112,72,.2);color:#1A7048;">✅ Pathways</span>
+      <span class="wmod" style="background:rgba(26,112,72,.08);border-color:rgba(26,112,72,.2);color:#1A7048;">✅ Your Role</span>
+      <span class="wmod" style="background:rgba(26,112,72,.08);border-color:rgba(26,112,72,.2);color:#1A7048;">✅ Conditions</span>
+      <span class="wmod" style="background:rgba(26,112,72,.08);border-color:rgba(26,112,72,.2);color:#1A7048;">✅ Scenarios</span>
+    </div>
+    <button class="btn btn-g" onclick="goTo(0)">← Review from Start</button>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bn" id="bn">
+  <button class="btn btn-g" id="bprev" onclick="nav(-1)">← Previous</button>
+  <span class="sc-ctr" id="sctr">1 / 8</span>
+  <button class="btn btn-p" id="bnext" onclick="nav(1)">Next →</button>
+</div>
+
+</div>
+
+<script>
+const SECS=[
+  {l:"The Adult Journey",g:"Foundation"},
+  {l:"CANSail Levels & Fleet",g:"Foundation"},
+  {l:"Teaching Adults",g:"Coaching"},
+  {l:"Program Pathways",g:"Coaching"},
+  {l:"Your Role on the Team",g:"Operations"},
+  {l:"Wind & Conditions",g:"Operations"},
+  {l:"Scenarios",g:"Practice"},
+  {l:"Complete!",g:null}
+];
+const ANS={
+  q1:{c:"Pull alongside them, check in, give specific feedback — then let the Lead know after the session",fb:"✅ Correct! Be proactive on the water — don't wait for the Lead to notice. But keep the Lead informed after so they have the full picture."},
+  q2:{c:"Coach boats and wetsuits ready, in the classroom talking to students, consent forms checked, Lead briefed on your readiness",fb:"✅ Correct! 20 minutes early means being fully set up and engaged — not just present."},
+  q3:{c:"\"Mac Crew: Race is designed for CANSail 2 graduates — let me connect you with [Lead's name] for the full picture\"",fb:"✅ Correct! You know enough to point them in the right direction. For the full conversation, connect them with the Lead. Never guess."}
+};
+let cur=0;const done=new Set();
+function ans(el,r,id){
+  el.parentElement.querySelectorAll('.qo').forEach(o=>{o.disabled=true;o.style.pointerEvents='none'});
+  el.classList.add(r);
+  const fb=document.getElementById(id+'-fb');
+  fb.classList.add('show',r==='correct'?'correct':'wrong');
+  if(r==='correct'){fb.textContent=ANS[id].fb}
+  else{fb.textContent="Not quite — review the section above. The correct answer is highlighted.";el.parentElement.querySelectorAll('.qo').forEach(o=>{if(o.textContent.trim()===ANS[id].c)o.classList.add('correct')})}
+}
+function toggleScenario(hdr){hdr.parentElement.classList.toggle('open')}
+function buildNav(){
+  const nl=document.getElementById('navlist');
+  let grp=null;
+  SECS.forEach((s,i)=>{
+    if(i===SECS.length-1)return;
+    if(s.g!==grp){grp=s.g;const t=document.createElement('div');t.className='nav-grp';t.textContent=s.g;nl.appendChild(t)}
+    const d=document.createElement('div');
+    d.className='ni'+(i===0?' active':'');d.id='ni'+i;
+    d.innerHTML='<div class="nd"></div><div class="nl">'+s.l+'</div>';
+    d.onclick=()=>goTo(i);nl.appendChild(d);
+  });
+}
+function ui(){
+  SECS.forEach((s,i)=>{const el=document.getElementById('ni'+i);if(!el)return;el.className='ni'+(i===cur?' active':'')+(done.has(i)&&i!==cur?' done':'')});
+  const p=Math.round((done.size/(SECS.length-1))*100);
+  document.getElementById('pfill').style.width=p+'%';
+  document.getElementById('pct').textContent=p+'%';
+  document.getElementById('sctr').textContent=(cur+1)+' / '+SECS.length;
+  document.getElementById('bprev').disabled=cur===0;
+  const last=cur===SECS.length-1;
+  document.getElementById('bnext').disabled=last;
+  document.getElementById('bnext').textContent=last?'Finish':'Next →';
+  document.getElementById('bn').style.display=last?'none':'flex';
+}
+function goTo(n){done.add(cur);document.querySelectorAll('.sec').forEach((s,i)=>s.classList.toggle('active',i===n));cur=n;ui();window.scrollTo({top:0,behavior:'smooth'})}
+function nav(d){const n=cur+d;if(n>=0&&n<SECS.length)goTo(n)}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('show')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('show')}
+document.addEventListener('click',function(e){if(e.target.closest('.ni')){closeSidebar()}});
+function start(){
+  document.getElementById('welcome').style.display='none';
+  document.getElementById('sidebar').style.display='flex';
+  document.getElementById('main').style.display='block';
+  buildNav();ui();
+}
+</script>
+</body>
+</html>
